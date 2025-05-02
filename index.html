@@ -1,79 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday Playlist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameBoy UI</title>
   <style>
     body {
+      background-color: #2b2b2b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      background-color: #121212;
-      font-family: Arial, sans-serif;
-      color: white;
+      font-family: sans-serif;
+    }
+    .gameboy {
+      width: 300px;
+      height: 500px;
+      background: #c4c4c4;
+      border-radius: 20px;
+      box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.6), inset 5px 5px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
-    h1 {
-      font-size: 48px;
+    .screen {
+      width: 220px;
+      height: 180px;
+      background: #1a1a1a;
+      border: 4px solid #333;
       margin-bottom: 20px;
-      color: #1DB954;
+      border-radius: 10px;
     }
-    button {
-      background-color: #1DB954;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.3s;
+    .dpad, .buttons, .start-select {
+      display: flex;
+      margin-bottom: 20px;
     }
-    button:hover {
-      background-color: #1ed760;
+    .dpad {
+      flex-direction: column;
+      align-items: center;
     }
-    .track-list {
-      margin-top: 30px;
+    .dpad div, .buttons div, .start-select div {
+      background: #333;
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+      border-radius: 4px;
     }
-    .track {
-      margin: 10px 0;
+    .dpad-horizontal {
+      display: flex;
+    }
+    .buttons div {
+      border-radius: 50%;
+    }
+    .start-select div {
+      width: 40px;
+      height: 15px;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <audio id="bg-music" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" loop></audio>
-  <h1>Happy Birthday Playlist</h1>
-  <button onclick="playMusic()">Play Surprise</button>
-
-  <div class="track-list">
-    <div class="track">1. Love Song - You & Me</div>
-    <div class="track">2. Special Day - Forever Yours</div>
-    <div class="track">3. Surprise Track - Hidden Message</div>
+  <div class="gameboy">
+    <div class="screen"></div>
+    <div class="dpad">
+      <div></div>
+      <div class="dpad-horizontal">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div></div>
+    </div>
+    <div class="buttons">
+      <div></div>
+      <div></div>
+    </div>
+    <div class="start-select">
+      <div></div>
+      <div></div>
+    </div>
   </div>
-
-  <script>
-    function playMusic() {
-      document.getElementById('bg-music').play();
-      setTimeout(() => {
-        openPopup('I love you!');
-      }, 1000);
-      setTimeout(() => {
-        openPopup('You are my everything!');
-      }, 3000);
-    }
-
-    function openPopup(message) {
-      const popup = window.open('', '', 'width=300,height=150');
-      popup.document.write(`
-        <body style="background: #121212; color: #1DB954; font-family: Arial; display: flex; justify-content: center; align-items: center; height: 100vh;">
-          <div>
-            <h2>${message}</h2>
-            <button onclick="window.close()" style="padding: 10px 20px; background: #1DB954; color: white; border: none; border-radius: 20px; cursor: pointer;">OK</button>
-          </div>
-        </body>
-      `);
-    }
-  </script>
 </body>
 </html>
