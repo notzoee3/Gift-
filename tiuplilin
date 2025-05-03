@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiup Lilin!</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .candle {
+      width: 50px;
+      height: 150px;
+      background: orange;
+      position: relative;
+    }
+    .flame {
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.5s infinite alternate;
+    }
+    @keyframes flicker {
+      from { transform: translateX(-50%) scale(1); }
+      to { transform: translateX(-50%) scale(1.2); }
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #1DB954;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tiup Lilinnya Sekarang!</h1>
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+  <button onclick="blowCandle()">Tiup!</button>
+
+  <script>
+    function blowCandle() {
+      document.querySelector('.flame').style.display = 'none';
+      alert('Yeay! Lilin sudah padam. Selamat ulang tahun!');
+    }
+  </script>
+</body>
+</html>
